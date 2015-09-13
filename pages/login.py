@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 '''Page object for a login page https://my.solidopinion.com/signin'''
+from time import sleep
 
 from selenium.webdriver.common.by import By
 from so.pages.general_page import Page
@@ -37,6 +38,7 @@ class Login():
         login_page.selenium.get(login_page.base_url + '/signin')
         login_page.so_maximize_window()
         login_page.enter_username(name)
+        sleep(1)
         login_page.enter_pass(pwd)
 
     def login(self, mozwebqa, name, pwd):
