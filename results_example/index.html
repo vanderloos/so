@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Test Report</title>
+    <link href="style.css" rel="stylesheet"/>
+    <script src="jquery.js"></script>
+    <script src="main.js"></script></head>
+  <body>
+    <p>Report generated on 13-Sep-2015 at 22:43:48 by pytest-mozwebqa 1.6</p>
+    <h2>Configuration</h2>
+    <table id="configuration">
+      <tr>
+        <td>Base URL</td>
+        <td>https://my.solidopinion.com</td></tr>
+      <tr>
+        <td>Credentials</td>
+        <td>so\credentials.yaml</td></tr>
+      <tr>
+        <td>Driver</td>
+        <td>firefox</td></tr>
+      <tr>
+        <td>Selenium API</td>
+        <td>webdriver</td></tr>
+      <tr>
+        <td>Selenium Server</td>
+        <td>http://localhost:4444</td></tr>
+      <tr>
+        <td>Timeout</td>
+        <td>60</td></tr></table>
+    <h2>Summary</h2>
+    <p>4 tests ran in 94 seconds.<br/><span class="passed">3 passed</span>, <span class="skipped">0 skipped</span>, <span class="failed">1 failed</span>, <span class="error">0 errors</span>.<br/><span class="skipped">0 expected failures</span>, <span class="failed">0 unexpected passes</span>.</p>
+    <h2>Results</h2>
+    <table id="results-table">
+      <thead id="results-table-head">
+        <tr>
+          <th class="sortable" col="result">Result</th>
+          <th class="sortable" col="class">Class</th>
+          <th class="sortable" col="name">Name</th>
+          <th class="sortable numeric" col="duration">Duration</th>
+          <th>Links</th></tr></thead>
+      <tbody id="results-table-body">
+        <tr class="passed results-table-row">
+          <td class="col-result">Passed</td>
+          <td class="col-class">test_user_name_editing.TestNameEdit</td>
+          <td class="col-name">test_user_name_edit_save[NULL]</td>
+          <td class="col-duration">15.0</td>
+          <td class="col-links"></td>
+          <td class="debug"></td></tr>
+        <tr class="failed results-table-row">
+          <td class="col-result">Failed</td>
+          <td class="col-class">test_user_name_editing.TestNameEdit</td>
+          <td class="col-name">test_user_name_edit_save[Sarah O&apos;Connor]</td>
+          <td class="col-duration">22.0</td>
+          <td class="col-links"><a href="debug\test_user_name_editing_TestNameEdit\test_user_name_edit_save[Sarah O&apos;Connor]\html.txt" target="_blank">HTML</a> <a href="https://my.solidopinion.com/profile" target="_blank">Failing URL</a> <a href="debug\test_user_name_editing_TestNameEdit\test_user_name_edit_save[Sarah O&apos;Connor]\screenshot.png" target="_blank">Screenshot</a> </td>
+          <td class="debug">
+            <div class="screenshot"><a href="debug\test_user_name_editing_TestNameEdit\test_user_name_edit_save[Sarah O&apos;Connor]\screenshot.png"><img src="debug\test_user_name_editing_TestNameEdit\test_user_name_edit_save[Sarah O&apos;Connor]\screenshot.png"/></a></div>
+            <div class="log">self = &lt;so.tests.test_user_name_editing.TestNameEdit instance at 0x0261D238&gt;<br/>mozwebqa = &lt;pytest_mozwebqa.pytest_mozwebqa.TestSetup instance at 0x0261D210&gt;<br/>name = "Sarah O'Connor"<br/><br/>    @pytest.mark.nondestructive<br/>    @pytest.mark.parametrize('name', names)<br/>    def test_user_name_edit_save(self, mozwebqa, name):<br/>        Login().login(mozwebqa, mozwebqa.credentials['User']['login'], mozwebqa.credentials['User']['password'])<br/>        login_page = LoginPage(mozwebqa)<br/>        Assert.false(login_page.is_error_message_displayed, 'Wrong login credentials entered')<br/>        # Here should be some implicit wait for JS element while the logging in, but due to its unstable appearance...<br/>        sleep(3)<br/>    <br/>        profile_page = ProfilePage(mozwebqa)<br/>    <br/>        Assert.true(profile_page.header.is_login_user_name_present)<br/>        profile_page.click_edit_button()<br/>        sleep(1)<br/>        profile_page.fill_in_name(name)<br/>        profile_page.click_save_button()<br/>&gt;       Assert.true(profile_page.is_saving_successful, 'No success message')<br/><br/>so\tests\test_user_name_editing.py:31: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _<br/><br/>self = &lt;class 'unittestzero.Assert'&gt;, first = False, msg = 'No success message'<br/><br/>    @classmethod<br/>    def true(self, first, msg=None):<br/>        """<br/>            Asserts that what is given is equal to True<br/>    <br/>            :Args:<br/>             - First object to be tested<br/>             - Message that will be printed if it fails<br/>            """<br/>    <br/>&gt;       assert bool(first) is True, msg<br/><span class="error">E       AssertionError: No success message</span><br/><br/>C:\Python27\lib\site-packages\unittestzero.py:79: AssertionError<br/></div></td></tr>
+        <tr class="passed results-table-row">
+          <td class="col-result">Passed</td>
+          <td class="col-class">test_user_name_editing.TestNameEdit</td>
+          <td class="col-name">test_user_name_edit_save[Tollemache-Tollemache de Orel]</td>
+          <td class="col-duration">14.0</td>
+          <td class="col-links"></td>
+          <td class="debug"></td></tr>
+        <tr class="passed results-table-row">
+          <td class="col-result">Passed</td>
+          <td class="col-class">test_user_name_editing.TestNameEdit</td>
+          <td class="col-name">test_user_name_edit_save[John James Clinton Doe]</td>
+          <td class="col-duration">14.0</td>
+          <td class="col-links"></td>
+          <td class="debug"></td></tr></tbody></table></body></html>
