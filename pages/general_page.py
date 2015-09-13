@@ -33,36 +33,12 @@ class Page(object):
         self.selenium.get(url)
 
     @property
-    def so_window_handles(self):
-        try:
-            return self.selenium.window_handles
-        except IndexError:
-            return False
-
-    @property
     def so_title(self):
         WebDriverWait(self, 10).until(lambda s: s.selenium.title)
         return self.selenium.title
 
     def so_maximize_window(self):
         self.selenium.maximize_window()
-
-    def s0_is_attribute_present(self, element, attribute):
-        self.selenium.implicitly_wait(0)
-        try:
-            element.get_attribute(attribute)
-            return True
-        except (NoSuchAttributeException, StaleElementReferenceException):
-            return False
-        finally:
-            # set back to where you once belonged
-            self.selenium.implicitly_wait(self.testsetup.default_implicit_wait)
-
-    def so_get_attribute(self, locator, attribute):
-        try:
-            return self.selenium.find_element(*locator).get_attribute(attribute)
-        except (NoSuchAttributeException, StaleElementReferenceException, NoSuchElementException):
-            return []
 
     def so_is_present(self, locator):
         try:
@@ -84,18 +60,9 @@ class Page(object):
         except (NoSuchElementException, ElementNotVisibleException, StaleElementReferenceException, ErrorInResponseException):
             return None
 
-    def so_find_elements(self, locator):
-        try:
-            return self.selenium.find_elements(*locator)
-        except (NoSuchElementException, ElementNotVisibleException):
-            return []
-
     def so_text(self, locator):
-        try:
-            return self.selenium.find_element(*locator).text
-        except (NoSuchElementException, ElementNotVisibleException, StaleElementReferenceException):
-            assert ("Element %s is not present" % str(locator))    
-
+        self.selenium.find_element(*locator).text
+        
     def so_send_keys(self, locator, value):
         if value == '' or value == [] or value is None or value == {} or value == ():
             return
