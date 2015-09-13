@@ -1,4 +1,4 @@
-SOLID OPPINION PROJECT
+SOLID OPINION PROJECT EXAMPLE
 ==========
 Change credentials before you run.
 
