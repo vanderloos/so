@@ -23,6 +23,7 @@ class ProfilePage(Page):
         return Header(self.testsetup)
 
     def fill_in_name(self, name):
+        self.so_click(self._editable_name_locator)
         self.so_clear(self._editable_name_locator)
         self.so_send_keys(self._editable_name_locator, name)
 

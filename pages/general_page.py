@@ -23,15 +23,6 @@ class Page(object):
         self.selenium = testsetup.selenium
         self.timeout = testsetup.timeout
 
-    def so_go_to_home_page(self):
-        self.selenium.get(self.base_url)
-
-    def so_go_to_page(self, url):
-        self.selenium.get(self.base_url + url)
-
-    def so_get(self, url):
-        self.selenium.get(url)
-
     @property
     def so_title(self):
         WebDriverWait(self, 10).until(lambda s: s.selenium.title)
@@ -39,13 +30,6 @@ class Page(object):
 
     def so_maximize_window(self):
         self.selenium.maximize_window()
-
-    def so_is_present(self, locator):
-        try:
-            self.selenium.find_element(locator)
-            return True
-        except NoSuchElementException:
-            return False
 
     def so_is_displayed(self, locator):
         try:
@@ -61,7 +45,7 @@ class Page(object):
             return None
 
     def so_text(self, locator):
-        self.selenium.find_element(*locator).text
+       return self.selenium.find_element(*locator).text
         
     def so_send_keys(self, locator, value):
         if value == '' or value == [] or value is None or value == {} or value == ():
