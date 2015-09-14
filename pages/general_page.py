@@ -50,10 +50,7 @@ class Page(object):
     def so_send_keys(self, locator, value):
         if value == '' or value == [] or value is None or value == {} or value == ():
             return
-        try:
-            return self.selenium.find_element(*locator).send_keys(value)
-        except (NoSuchElementException, ElementNotVisibleException, StaleElementReferenceException):
-            assert ("Element %s is not present" % str(locator))
+        else: return self.selenium.find_element(*locator).send_keys(value)
 
     def so_click(self, locator):
         return self.selenium.find_element(*locator).click()
